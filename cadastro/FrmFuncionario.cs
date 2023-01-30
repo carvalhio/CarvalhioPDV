@@ -19,6 +19,8 @@ namespace carvalhioPDV2.cadastro
         string sql;
         MySqlCommand cmd;
         private string foto;
+        string changedImage = "no";
+        string = id; 
 
         public FrmFuncionario()
         {
@@ -181,6 +183,8 @@ namespace carvalhioPDV2.cadastro
 
         private void FrmFuncionario_Load(object sender, EventArgs e)
         {
+            changedImage = "no";
+
             cleanPicture();
             printDatas();
         }
@@ -213,6 +217,7 @@ namespace carvalhioPDV2.cadastro
                 btnSalvar.Enabled = false;
                 btnNovo.Enabled = false;
 
+                id  = grid.CurrentRow.Cells[0].Value.ToString();
                 txtNome.Text = grid.CurrentRow.Cells[1].Value.ToString();
                 txtCpf.Text = grid.CurrentRow.Cells[2].Value.ToString();
                 txtTel.Text = grid.CurrentRow.Cells[3].Value.ToString();
@@ -235,6 +240,77 @@ namespace carvalhioPDV2.cadastro
             else
             {
                 return;
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            if (txtNome.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Por favor, preencher o campo Nome", "Cadastro Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNome.Text = "";
+                txtNome.Focus();
+                return;
+            }
+            if (txtCpf.Text == "   ,   ,   -" || txtCpf.Text.Length < 14)
+            {
+                MessageBox.Show("Por favor, preencher o campo CPF", "CPF", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCpf.Focus();
+                return;
+            }
+
+            if (txtTel.Text == "  -     -" || txtTel.Text.Length < 15)
+            {
+                MessageBox.Show("Número de telefone inválido!", "Telefone", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTel.Focus();
+                return;
+            }
+
+            // Editar (UPDATE)
+            con.OpenConnection();
+            if (changedImage == "yes")
+            {
+                sql = "UPDATE funcionarios SET nome = @nome, cpf = @cpf, endereco = @endereco, telefone = @telefone, cargo = @cargo, foto = @foto WHERE id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                cmd.Parameters.AddWithValue("@cpf", txtCpf.Text);
+                cmd.Parameters.AddWithValue("@telefone", txtTel.Text);
+                cmd.Parameters.AddWithValue("@cargo", cbCargo.Text);
+                cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text);
+                cmd.Parameters.AddWithValue("@foto", Img());
+
+            }
+            else if (changedImage == "no")
+            {
+                sql = "UPDATE funcionarios SET nome = @nome, cpf = @cpf, endereco = @endereco, telefone = @telefone, cargo = @cargo WHERE id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.Parameters.AddWithValue("@nome", txtNome.Text);
+                cmd.Parameters.AddWithValue("@cpf", txtCpf.Text);
+                cmd.Parameters.AddWithValue("@telefone", txtTel.Text);
+                cmd.Parameters.AddWithValue("@cargo", cbCargo.Text);
+                cmd.Parameters.AddWithValue("@endereco", txtEndereco.Text);
+            }
+
+            // Verificar se CPF já existe
+            if (txtCpf.Text != cpfAntigo)
+            {
+                MySqlCommand cmdVerificar;
+                cmdVerificar = new MySqlCommand("SELECT * FROM funcionarios WHERE cpf = @cpf", con.con);
+                MySqlDataAdapter da = new MySqlDataAdapter();
+                da.SelectCommand = cmdVerificar;
+                cmdVerificar.Parameters.AddWithValue("@cpf", txtCpf.Text);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    MessageBox.Show("CPF já cadastrado!", "Cadastro de Funcionários", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    txtCpf.Text = "";
+                    txtCpf.Focus();
+                    return;
+                }
             }
         }
     }

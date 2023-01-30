@@ -148,7 +148,6 @@ namespace carvalhioPDV2.cadastro
             this.grid.Size = new System.Drawing.Size(872, 232);
             this.grid.TabIndex = 13;
             this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
-          
             // 
             // btnNovo
             // 
@@ -180,6 +179,7 @@ namespace carvalhioPDV2.cadastro
             this.btnEditar.TabIndex = 14;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnExcluir
             // 
