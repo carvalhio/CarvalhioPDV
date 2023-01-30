@@ -229,10 +229,10 @@ namespace carvalhioPDV2
             // img01
             // 
             this.img01.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.img01.Image = global::carvalhioPDV2.Properties.Resources.logo;
-            this.img01.Location = new System.Drawing.Point(318, 129);
+            this.img01.Image = global::carvalhioPDV2.Properties.Resources.logo2;
+            this.img01.Location = new System.Drawing.Point(181, 44);
             this.img01.Name = "img01";
-            this.img01.Size = new System.Drawing.Size(200, 200);
+            this.img01.Size = new System.Drawing.Size(552, 406);
             this.img01.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.img01.TabIndex = 2;
             this.img01.TabStop = false;

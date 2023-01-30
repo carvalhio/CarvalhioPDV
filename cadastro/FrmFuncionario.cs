@@ -121,7 +121,12 @@ namespace carvalhioPDV2.cadastro
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-           
+            btnNovo.Enabled = true;
+            btnSalvar.Enabled = false;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            unableFields();
+            cleanFields();
         }
 
         private void enableFields()
@@ -154,7 +159,8 @@ namespace carvalhioPDV2.cadastro
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
-        {
+        {    
+            cleanFields();
             enableFields();
             txtNome.Focus();
         }
@@ -202,11 +208,29 @@ namespace carvalhioPDV2.cadastro
             if (e.RowIndex > -1)
             {
                 enableFields();
+                btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnSalvar.Enabled = false;
+                btnNovo.Enabled = false;
+
                 txtNome.Text = grid.CurrentRow.Cells[1].Value.ToString();
                 txtCpf.Text = grid.CurrentRow.Cells[2].Value.ToString();
                 txtTel.Text = grid.CurrentRow.Cells[3].Value.ToString();
                 cbCargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
                 txtEndereco.Text = grid.CurrentRow.Cells[5].Value.ToString();
+
+                if (grid.CurrentRow.Cells[7].Value != DBNull.Value)
+                {
+                    byte[] imagem = (byte[])grid.Rows[e.RowIndex].Cells[7].Value;
+                    MemoryStream ms = new MemoryStream(imagem);
+
+                    img.Image = Image.FromStream(ms);
+
+                }
+                else
+                {
+                    img.Image = Properties.Resources.profile_icon_9;
+                }
             }
             else
             {
