@@ -88,32 +88,32 @@ namespace carvalhioPDV2
             // MenuFuncionarios
             // 
             this.MenuFuncionarios.Name = "MenuFuncionarios";
-            this.MenuFuncionarios.Size = new System.Drawing.Size(145, 22);
+            this.MenuFuncionarios.Size = new System.Drawing.Size(180, 22);
             this.MenuFuncionarios.Text = "Funcionários";
             this.MenuFuncionarios.Click += new System.EventHandler(this.MenuFuncionarios_Click);
             // 
             // MenuClientes
             // 
             this.MenuClientes.Name = "MenuClientes";
-            this.MenuClientes.Size = new System.Drawing.Size(145, 22);
+            this.MenuClientes.Size = new System.Drawing.Size(180, 22);
             this.MenuClientes.Text = "Clientes";
             // 
             // MenuUsuários
             // 
             this.MenuUsuários.Name = "MenuUsuários";
-            this.MenuUsuários.Size = new System.Drawing.Size(145, 22);
+            this.MenuUsuários.Size = new System.Drawing.Size(180, 22);
             this.MenuUsuários.Text = "Usuários";
             // 
             // MenuCargos
             // 
             this.MenuCargos.Name = "MenuCargos";
-            this.MenuCargos.Size = new System.Drawing.Size(145, 22);
+            this.MenuCargos.Size = new System.Drawing.Size(180, 22);
             this.MenuCargos.Text = "Cargos";
             // 
             // MenuFornecedores
             // 
             this.MenuFornecedores.Name = "MenuFornecedores";
-            this.MenuFornecedores.Size = new System.Drawing.Size(145, 22);
+            this.MenuFornecedores.Size = new System.Drawing.Size(180, 22);
             this.MenuFornecedores.Text = "Fornecedores";
             // 
             // MenuProdutos

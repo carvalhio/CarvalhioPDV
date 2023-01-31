@@ -19,8 +19,7 @@ namespace carvalhioPDV2.cadastro
         string sql;
         MySqlCommand cmd;
         private string foto;
-        string changedImage = "no";
-        string = id; 
+        string cpfAntigo, id, changedImage = "no";
 
         public FrmFuncionario()
         {
@@ -270,7 +269,7 @@ namespace carvalhioPDV2.cadastro
             con.OpenConnection();
             if (changedImage == "yes")
             {
-                sql = "UPDATE funcionarios SET nome = @nome, cpf = @cpf, endereco = @endereco, telefone = @telefone, cargo = @cargo, foto = @foto WHERE id = @id";
+                sql = "UPDATE funcionarios SET nome = @nome, cpf = @cpf, telefone = @telefone, cargo = @cargo, endereco = @endereco, foto = @foto WHERE id = @id";
                 cmd = new MySqlCommand(sql, con.con);
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.Parameters.AddWithValue("@nome", txtNome.Text);
@@ -312,6 +311,21 @@ namespace carvalhioPDV2.cadastro
                     return;
                 }
             }
+
+            cmd.ExecuteNonQuery();
+            con.CloseConnection();
+            printDatas();
+
+            MessageBox.Show("Cadastro editado com sucesso!", "Cadastro de funcionários", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnNovo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
+            btnSalvar.Enabled = false;
+            unableFields();
+            cleanFields();
+            cleanPicture();
+            changedImage = "no";
+
         }
     }
 }
