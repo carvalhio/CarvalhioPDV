@@ -28,16 +28,7 @@ namespace carvalhioPDV2.cadastro
             InitializeComponent();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        // SALVAR
         private void btnSalvar_Click(object sender, EventArgs e)
         {
 
@@ -89,23 +80,7 @@ namespace carvalhioPDV2.cadastro
             unableFields();             
         }
 
-        private object Img()
-        {
-            byte[] imagem_byte = null; // variavel usada para enviar o comprimento da imagem
-           
-            if (foto == "")
-            {
-                return null;
-            }
-
-            // FileStream aqui é usado p/ enviar a imgem p/ o bd mais três parâmetros: local(foto), tipo da imagem(FileMode) e o Tipo de acesso(FileAccess)
-            FileStream fs = new FileStream(foto, FileMode.Open, FileAccess.Read);
-            BinaryReader br = new BinaryReader(fs); // Usado para trabalhar com o FileStream
-
-            imagem_byte = br.ReadBytes((int)fs.Length); // Pegando o comprimento de FileStream jogando dentro de ma tipo IMAGEM byte
-
-            return imagem_byte;
-        }
+        // CARREGAR FOTO
         private void btnFoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -116,12 +91,8 @@ namespace carvalhioPDV2.cadastro
                 img.ImageLocation = foto;            // atribui o caminho da imagem ao componente no formulário para assim exibi-la
             }
         }
-        private void cleanPicture()
-        {
-            img.Image = Properties.Resources.profile_icon_9;
-            foto = "img/profile_icon_9.png";
-        }
 
+        // CANCELAR
         private void btnCancel_Click(object sender, EventArgs e)
         {
             btnNovo.Enabled = true;
@@ -132,38 +103,9 @@ namespace carvalhioPDV2.cadastro
             cleanFields();
         }
 
-        private void enableFields()
-        {
-            btnSalvar.Enabled = true;
-            txtNome.Enabled = true;
-            txtCpf.Enabled = true;
-            txtEndereco.Enabled = true;
-            btnFoto.Enabled = true;
-            txtTel.Enabled = true;
-            cbCargo.Enabled = true;
-            btnNovo.Enabled = false;
-        }
-
-        private void unableFields()
-        {
-            txtNome.Enabled = false;
-            txtEndereco.Enabled = false;
-            txtTel.Enabled = false;
-            cbCargo.Enabled = false;
-            txtCpf.Enabled = false;
-        }
-
-        private void cleanFields()
-        {
-            txtNome.Text = "";
-            txtTel.Text = "";
-            txtCpf.Text = "";
-            txtEndereco.Text = "";
-            cleanPicture();
-        }
-
+        // NOVO
         private void btnNovo_Click(object sender, EventArgs e)
-        {    
+        {
             cleanFields();
             enableFields();
             txtNome.Focus();
@@ -172,46 +114,6 @@ namespace carvalhioPDV2.cadastro
             btnAtualizar.Enabled = false;
             btnEditar.Enabled = false;
             btnExcluir.Enabled = false;
-        }
-
-        private void printDatas()
-        {
-            con.OpenConnection();
-            sql = "SELECT * FROM funcionarios ORDER BY nome asc";
-            cmd = new MySqlCommand(sql, con.con);
-            MySqlDataAdapter da = new MySqlDataAdapter();
-            da.SelectCommand = cmd;
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            grid.DataSource = dt;
-            con.CloseConnection();
-            FormatList();
-        }
-
-        private void FrmFuncionario_Load(object sender, EventArgs e)
-        {
-            changedImage = "no";
-
-            cleanPicture();
-            printDatas();
-            btnAtualizar.Enabled = false;
-        }
-
-        private void FormatList()
-        {
-            grid.Columns[0].HeaderText = "ID";
-            grid.Columns[1].HeaderText = "Funcionário";
-            grid.Columns[2].HeaderText = "CPF";
-            grid.Columns[3].HeaderText = "Telefone";
-            grid.Columns[4].HeaderText = "Cargo";
-            grid.Columns[5].HeaderText = "Endereço";
-            grid.Columns[6].HeaderText = "Data";
-            grid.Columns[7].HeaderText = "Foto";
-
-            grid.Columns[0].Width = 50;
-            grid.Columns[6].Width = 50;
-            grid.Columns[0].Visible = false;
-           // grid.Columns[7].Visible = false;
         }
 
         private void btnAtualizar_Click(object sender, EventArgs e)
@@ -299,8 +201,144 @@ namespace carvalhioPDV2.cadastro
             cleanPicture();
             changedImage = "no";
 
-
         }
+
+        // BOTÃO EDITAR
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            enableFields();
+            btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = true;
+            btnEditar.Enabled = false;
+        }
+        
+        // EXLCUIR
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            var msg = MessageBox.Show("Tem certeza?", "Excluir funcionário", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (msg == DialogResult.Yes)
+            {
+                con.OpenConnection();
+                sql = "DELETE FROM funcionarios WHERE id = @id";
+                cmd = new MySqlCommand(sql, con.con);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                con.CloseConnection();
+
+                MessageBox.Show("Funcionário excluído com sucesso!", "Cadastro de funcionários", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                printDatas();
+                btnNovo.Enabled = true;
+                btnAtualizar.Enabled = false;
+                btnExcluir.Enabled = false;
+                btnSalvar.Enabled = false;
+                cleanFields();
+                unableFields();
+
+            }
+        }
+
+        private object Img()
+        {
+            byte[] imagem_byte = null; // variavel usada para enviar o comprimento da imagem
+           
+            if (foto == "")
+            {
+                return null;
+            }
+
+            // FileStream aqui é usado p/ enviar a imgem p/ o bd mais três parâmetros: local(foto), tipo da imagem(FileMode) e o Tipo de acesso(FileAccess)
+            FileStream fs = new FileStream(foto, FileMode.Open, FileAccess.Read);
+            BinaryReader br = new BinaryReader(fs); // Usado para trabalhar com o FileStream
+
+            imagem_byte = br.ReadBytes((int)fs.Length); // Pegando o comprimento de FileStream jogando dentro de ma tipo IMAGEM byte
+
+            return imagem_byte;
+        }
+       
+        private void cleanPicture()
+        {
+            img.Image = Properties.Resources.profile_icon_9;
+            foto = "img/profile_icon_9.png";
+        }
+
+       
+        // HABILITAR CAMPOS
+        private void enableFields()
+        {
+            btnSalvar.Enabled = true;
+            txtNome.Enabled = true;
+            txtCpf.Enabled = true;
+            txtEndereco.Enabled = true;
+            btnFoto.Enabled = true;
+            txtTel.Enabled = true;
+            cbCargo.Enabled = true;
+            btnNovo.Enabled = false;
+        }
+
+        // DESABILITAR CAMPOS
+        private void unableFields()
+        {
+            txtNome.Enabled = false;
+            txtEndereco.Enabled = false;
+            txtTel.Enabled = false;
+            cbCargo.Enabled = false;
+            txtCpf.Enabled = false;
+            cleanPicture();
+        }
+
+        private void cleanFields()
+        {
+            txtNome.Text = "";
+            txtTel.Text = "";
+            txtCpf.Text = "";
+            txtEndereco.Text = "";
+            cleanPicture();
+        }
+
+       
+        // LISTAR
+        private void printDatas()
+        {
+            con.OpenConnection();
+            sql = "SELECT * FROM funcionarios ORDER BY nome asc";
+            cmd = new MySqlCommand(sql, con.con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            grid.DataSource = dt;
+            con.CloseConnection();
+            FormatList();
+        }
+
+        private void FrmFuncionario_Load(object sender, EventArgs e)
+        {
+            changedImage = "no";
+
+            cleanPicture();
+            printDatas();
+            btnAtualizar.Enabled = false;
+        }
+
+        private void FormatList()
+        {
+            grid.Columns[0].HeaderText = "ID";
+            grid.Columns[1].HeaderText = "Funcionário";
+            grid.Columns[2].HeaderText = "CPF";
+            grid.Columns[3].HeaderText = "Telefone";
+            grid.Columns[4].HeaderText = "Cargo";
+            grid.Columns[5].HeaderText = "Endereço";
+            grid.Columns[6].HeaderText = "Data";
+            grid.Columns[7].HeaderText = "Foto";
+
+            grid.Columns[0].Width = 50;
+            grid.Columns[6].Width = 50;
+            grid.Columns[0].Visible = false;
+           // grid.Columns[7].Visible = false;
+        }
+
+       
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -348,18 +386,7 @@ namespace carvalhioPDV2.cadastro
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            enableFields();
-            btnSalvar.Enabled = false;
-            btnAtualizar.Enabled = true;
-            btnEditar.Enabled = false;
-
-            
-
-            // Editar (UPDATE)
-            
-        }
+        
     }
 }
 

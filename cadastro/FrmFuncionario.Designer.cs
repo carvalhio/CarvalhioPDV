@@ -71,7 +71,6 @@ namespace carvalhioPDV2.cadastro
             this.label2.Size = new System.Drawing.Size(23, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Cpf";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -81,7 +80,6 @@ namespace carvalhioPDV2.cadastro
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Telefone";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -191,6 +189,7 @@ namespace carvalhioPDV2.cadastro
             this.btnExcluir.TabIndex = 15;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnFoto
             // 
