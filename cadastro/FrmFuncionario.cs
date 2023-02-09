@@ -19,7 +19,9 @@ namespace carvalhioPDV2.cadastro
         string sql;
         MySqlCommand cmd;
         private string foto;
-        string cpfAntigo, id, changedImage = "no";
+        string cpfAntigo;
+        string id;
+        string changedImage = "no";
 
         public FrmFuncionario()
         {
@@ -157,6 +159,7 @@ namespace carvalhioPDV2.cadastro
             txtTel.Text = "";
             txtCpf.Text = "";
             txtEndereco.Text = "";
+            cleanPicture();
         }
 
         private void btnNovo_Click(object sender, EventArgs e)
@@ -164,6 +167,11 @@ namespace carvalhioPDV2.cadastro
             cleanFields();
             enableFields();
             txtNome.Focus();
+
+            btnSalvar.Enabled = true;
+            btnAtualizar.Enabled = false;
+            btnEditar.Enabled = false;
+            btnExcluir.Enabled = false;
         }
 
         private void printDatas()
@@ -186,6 +194,7 @@ namespace carvalhioPDV2.cadastro
 
             cleanPicture();
             printDatas();
+            btnAtualizar.Enabled = false;
         }
 
         private void FormatList()
@@ -205,44 +214,7 @@ namespace carvalhioPDV2.cadastro
            // grid.Columns[7].Visible = false;
         }
 
-        private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            if (e.RowIndex > -1)
-            {
-                enableFields();
-                btnEditar.Enabled = true;
-                btnExcluir.Enabled = true;
-                btnSalvar.Enabled = false;
-                btnNovo.Enabled = false;
-
-                id  = grid.CurrentRow.Cells[0].Value.ToString();
-                txtNome.Text = grid.CurrentRow.Cells[1].Value.ToString();
-                txtCpf.Text = grid.CurrentRow.Cells[2].Value.ToString();
-                txtTel.Text = grid.CurrentRow.Cells[3].Value.ToString();
-                cbCargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
-                txtEndereco.Text = grid.CurrentRow.Cells[5].Value.ToString();
-
-                if (grid.CurrentRow.Cells[7].Value != DBNull.Value)
-                {
-                    byte[] imagem = (byte[])grid.Rows[e.RowIndex].Cells[7].Value;
-                    MemoryStream ms = new MemoryStream(imagem);
-
-                    img.Image = Image.FromStream(ms);
-
-                }
-                else
-                {
-                    img.Image = Properties.Resources.profile_icon_9;
-                }
-            }
-            else
-            {
-                return;
-            }
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void btnAtualizar_Click(object sender, EventArgs e)
         {
             if (txtNome.Text.ToString().Trim() == "")
             {
@@ -265,7 +237,7 @@ namespace carvalhioPDV2.cadastro
                 return;
             }
 
-            // Editar (UPDATE)
+            // Atualizar
             con.OpenConnection();
             if (changedImage == "yes")
             {
@@ -316,16 +288,77 @@ namespace carvalhioPDV2.cadastro
             con.CloseConnection();
             printDatas();
 
-            MessageBox.Show("Cadastro editado com sucesso!", "Cadastro de funcionários", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cadastro atualizado com sucesso!", "Cadastro de funcionários", MessageBoxButtons.OK, MessageBoxIcon.Information);
             btnNovo.Enabled = true;
             btnEditar.Enabled = false;
             btnExcluir.Enabled = false;
             btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = false;
             unableFields();
             cleanFields();
             cleanPicture();
             changedImage = "no";
 
+
+        }
+
+        private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = false;
+
+            if (e.RowIndex > -1)
+            {
+                unableFields();
+                btnEditar.Enabled = true;
+                btnExcluir.Enabled = true;
+                btnSalvar.Enabled = false;
+                btnNovo.Enabled = true;
+
+                id  = grid.CurrentRow.Cells[0].Value.ToString();
+                txtNome.Text = grid.CurrentRow.Cells[1].Value.ToString();               
+                txtCpf.Text = grid.CurrentRow.Cells[2].Value.ToString();
+                cpfAntigo = grid.CurrentRow.Cells[2].Value.ToString();
+                txtTel.Text = grid.CurrentRow.Cells[3].Value.ToString();
+                cbCargo.Text = grid.CurrentRow.Cells[4].Value.ToString();
+                txtEndereco.Text = grid.CurrentRow.Cells[5].Value.ToString();
+
+                if (grid.CurrentRow.Cells[7].Value != DBNull.Value)
+                {
+                    byte[] imagem = (byte[])grid.Rows[e.RowIndex].Cells[7].Value;
+                    MemoryStream ms = new MemoryStream(imagem);
+
+                    img.Image = Image.FromStream(ms);
+
+                }
+                else
+                {
+                    img.Image = Properties.Resources.profile_icon_9;
+                }
+
+                if (txtTel.Focus() == true)
+                {
+                    btnSalvar.Enabled = true;
+                   
+                }
+            }
+            else
+            {
+                return;
+            }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            enableFields();
+            btnSalvar.Enabled = false;
+            btnAtualizar.Enabled = true;
+            btnEditar.Enabled = false;
+
+            
+
+            // Editar (UPDATE)
+            
         }
     }
 }

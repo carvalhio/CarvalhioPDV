@@ -49,6 +49,7 @@ namespace carvalhioPDV2.cadastro
             this.txtCpf = new System.Windows.Forms.MaskedTextBox();
             this.txtTel = new System.Windows.Forms.MaskedTextBox();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img)).BeginInit();
             this.SuspendLayout();
@@ -151,7 +152,7 @@ namespace carvalhioPDV2.cadastro
             // 
             // btnNovo
             // 
-            this.btnNovo.Location = new System.Drawing.Point(75, 441);
+            this.btnNovo.Location = new System.Drawing.Point(99, 441);
             this.btnNovo.Name = "btnNovo";
             this.btnNovo.Size = new System.Drawing.Size(75, 23);
             this.btnNovo.TabIndex = 12;
@@ -162,7 +163,7 @@ namespace carvalhioPDV2.cadastro
             // btnSalvar
             // 
             this.btnSalvar.Enabled = false;
-            this.btnSalvar.Location = new System.Drawing.Point(200, 441);
+            this.btnSalvar.Location = new System.Drawing.Point(212, 441);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
             this.btnSalvar.TabIndex = 13;
@@ -173,7 +174,7 @@ namespace carvalhioPDV2.cadastro
             // btnEditar
             // 
             this.btnEditar.Enabled = false;
-            this.btnEditar.Location = new System.Drawing.Point(328, 441);
+            this.btnEditar.Location = new System.Drawing.Point(332, 441);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 14;
@@ -184,7 +185,7 @@ namespace carvalhioPDV2.cadastro
             // btnExcluir
             // 
             this.btnExcluir.Enabled = false;
-            this.btnExcluir.Location = new System.Drawing.Point(450, 441);
+            this.btnExcluir.Location = new System.Drawing.Point(568, 441);
             this.btnExcluir.Name = "btnExcluir";
             this.btnExcluir.Size = new System.Drawing.Size(75, 23);
             this.btnExcluir.TabIndex = 15;
@@ -240,11 +241,22 @@ namespace carvalhioPDV2.cadastro
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Location = new System.Drawing.Point(452, 441);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnAtualizar.TabIndex = 17;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
             // FrmFuncionario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(903, 494);
+            this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtTel);
             this.Controls.Add(this.txtCpf);
@@ -297,5 +309,6 @@ namespace carvalhioPDV2.cadastro
         private System.Windows.Forms.MaskedTextBox txtCpf;
         private System.Windows.Forms.MaskedTextBox txtTel;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }
