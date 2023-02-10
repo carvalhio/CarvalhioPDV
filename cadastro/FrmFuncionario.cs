@@ -294,6 +294,7 @@ namespace carvalhioPDV2.cadastro
             txtCpf.Text = "";
             txtEndereco.Text = "";
             cleanPicture();
+            cbCargo.Text = "";
         }
 
        
@@ -312,13 +313,28 @@ namespace carvalhioPDV2.cadastro
             FormatList();
         }
 
+        private void ListPositon()
+        {
+            con.OpenConnection();
+            sql = "SELECT * FROM cargos ORDER BY cargo asc";
+            cmd = new MySqlCommand(sql, con.con);
+            MySqlDataAdapter da = new MySqlDataAdapter();
+            da.SelectCommand = cmd;
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            cbCargo.DataSource = dt;
+            // cbCargo.ValueMember = "id";
+            cbCargo.DisplayMember = "cargo";
+            con.CloseConnection();
+        }
         private void FrmFuncionario_Load(object sender, EventArgs e)
         {
             changedImage = "no";
-
+            ListPositon();
             cleanPicture();
             printDatas();
             btnAtualizar.Enabled = false;
+            cbCargo.Text = "";
         }
 
         private void FormatList()
