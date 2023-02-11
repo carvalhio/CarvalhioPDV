@@ -84,6 +84,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cadastro\FrmCargos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cadastro\FrmCargos.Designer.cs">
+      <DependentUpon>FrmCargos.cs</DependentUpon>
+    </Compile>
     <Compile Include="cadastro\FrmFuncionario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="cadastro\FrmCargos.resx">
+      <DependentUpon>FrmCargos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="cadastro\FrmFuncionario.resx">
       <DependentUpon>FrmFuncionario.cs</DependentUpon>
     </EmbeddedResource>

@@ -32,3 +32,11 @@ C:\Projetos\carvalhioPDV2\carvalhioPDV2\carvalhioPDV2\bin\Debug\System.Memory.xm
 C:\Projetos\carvalhioPDV2\carvalhioPDV2\carvalhioPDV2\bin\Debug\System.Numerics.Vectors.xml
 C:\Projetos\carvalhioPDV2\carvalhioPDV2\carvalhioPDV2\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Projetos\carvalhioPDV2\carvalhioPDV2\carvalhioPDV2\obj\Debug\carvalhioPDV2.csproj.CopyComplete
+C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.csproj.AssemblyReference.cache
+C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.cadastro.FrmFuncionario.resources
+C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.MenuPrincipal.resources
+C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.Properties.Resources.resources
+C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.csproj.GenerateResource.cache
+C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.csproj.CoreCompileInputs.cache
+C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.exe
+C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.pdb

@@ -109,6 +109,7 @@ namespace carvalhioPDV2
             this.MenuCargos.Name = "MenuCargos";
             this.MenuCargos.Size = new System.Drawing.Size(180, 22);
             this.MenuCargos.Text = "Cargos";
+            this.MenuCargos.Click += new System.EventHandler(this.MenuCargos_Click);
             // 
             // MenuFornecedores
             // 
