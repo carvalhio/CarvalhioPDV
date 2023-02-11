@@ -40,3 +40,4 @@ C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPD
 C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.csproj.CoreCompileInputs.cache
 C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.exe
 C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.pdb
+C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.cadastro.FrmCargos.resources

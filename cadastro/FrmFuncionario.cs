@@ -116,6 +116,7 @@ namespace carvalhioPDV2.cadastro
             btnExcluir.Enabled = false;
         }
 
+        // BOTAO ATUALIZAR
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             if (txtNome.Text.ToString().Trim() == "")
@@ -212,7 +213,7 @@ namespace carvalhioPDV2.cadastro
             btnEditar.Enabled = false;
         }
         
-        // EXLCUIR
+        // EXCLUIR
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             var msg = MessageBox.Show("Tem certeza?", "Excluir funcionário", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -238,6 +239,7 @@ namespace carvalhioPDV2.cadastro
             }
         }
 
+        // CARREGAR FOTO
         private object Img()
         {
             byte[] imagem_byte = null; // variavel usada para enviar o comprimento da imagem
@@ -256,6 +258,7 @@ namespace carvalhioPDV2.cadastro
             return imagem_byte;
         }
        
+        // LIMPAR FOTO
         private void cleanPicture()
         {
             img.Image = Properties.Resources.profile_icon_9;
@@ -287,6 +290,7 @@ namespace carvalhioPDV2.cadastro
             cleanPicture();
         }
 
+        // LIMPAR CAMPOS
         private void cleanFields()
         {
             txtNome.Text = "";
@@ -298,7 +302,7 @@ namespace carvalhioPDV2.cadastro
         }
 
        
-        // LISTAR
+        // LISTAR FUNCIONARIOS
         private void printDatas()
         {
             con.OpenConnection();
@@ -313,6 +317,7 @@ namespace carvalhioPDV2.cadastro
             FormatList();
         }
 
+        // LISTAR CARGOS
         private void ListPositon()
         {
             con.OpenConnection();
@@ -327,6 +332,8 @@ namespace carvalhioPDV2.cadastro
             cbCargo.DisplayMember = "cargo";
             con.CloseConnection();
         }
+
+        // ABRIR ABA FUNCIONÁRIOS
         private void FrmFuncionario_Load(object sender, EventArgs e)
         {
             changedImage = "no";
@@ -337,6 +344,8 @@ namespace carvalhioPDV2.cadastro
             cbCargo.Text = "";
         }
 
+
+        // FORMATAR LISTA
         private void FormatList()
         {
             grid.Columns[0].HeaderText = "ID";
@@ -355,7 +364,7 @@ namespace carvalhioPDV2.cadastro
         }
 
        
-
+        // PREECHE OS CAMPOS DO CADASTRO COM OS DADOS DO FUNCIONÁRIO SELECIONADO
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnSalvar.Enabled = false;
