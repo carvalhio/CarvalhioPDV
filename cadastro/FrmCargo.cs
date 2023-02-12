@@ -13,6 +13,7 @@ namespace carvalhioPDV2.cadastro
 {
     public partial class FrmCargo : Form
     {
+
         Connection con = new Connection();
         string sql;
         MySqlCommand cmd;
@@ -20,17 +21,20 @@ namespace carvalhioPDV2.cadastro
         string cpfAntigo;
         string id;
         string changedImage = "no";
+
+
         public FrmCargo()
         {
             InitializeComponent();
         }
 
+        // CARREGAR ABA 'CARGOS'
         private void FrmCargo_Load(object sender, EventArgs e)
         {
 
         }
 
-        // FORMATAR LISTA
+        // FORMATAR DADOS
         private void FormatList()
         {
             grid.Columns[0].HeaderText = "ID";
@@ -40,6 +44,7 @@ namespace carvalhioPDV2.cadastro
             grid.Columns[0].Visible = false; // oculta o id[0] na exibição
         }
 
+        // LISTR DADOS
         private void printDatas()
         {
             con.OpenConnection();
@@ -54,6 +59,8 @@ namespace carvalhioPDV2.cadastro
             FormatList();
         }
 
+
+        // EXCLUIR
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             var msg = MessageBox.Show("Tem certeza?", "Excluir cargo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -77,7 +84,7 @@ namespace carvalhioPDV2.cadastro
             }
         }
 
-
+        // SALVAR
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (txtCargo.Text.ToString().Trim() == "")
@@ -98,7 +105,7 @@ namespace carvalhioPDV2.cadastro
             cmd.ExecuteNonQuery();
             con.CloseConnection();
 
-            MessageBox.Show("Funcionário cadastrado com sucesso!", "Cadastro de Funcionário", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Cargo cadastrado com sucesso!", "Cadastro de cargos", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             btnNovo.Enabled = true;
             btnSalvar.Enabled = false;
@@ -106,16 +113,16 @@ namespace carvalhioPDV2.cadastro
             printDatas();
 
         }
-    }
 
+
+        // CANCELAR
         private void btnCancel_Click(object sender, EventArgs e)
         {
             btnNovo.Enabled = true;
             btnSalvar.Enabled = false;
-            btnEditar.Enabled = false;
             btnExcluir.Enabled = false;
-            unableFields();
-            cleanFields();
+            //unableFields();
+            //cleanFields();
         }
-    }
+    }    
 }

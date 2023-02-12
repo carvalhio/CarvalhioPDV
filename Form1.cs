@@ -30,7 +30,8 @@ namespace carvalhioPDV2
 
         private void MenuCargos_Click(object sender, EventArgs e)
         {
-
+            cadastro.FrmCargo frm = new cadastro.FrmCargo();
+            frm.ShowDialog();
         }
     }
 }
