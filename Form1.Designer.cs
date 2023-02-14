@@ -97,6 +97,7 @@ namespace carvalhioPDV2
             this.MenuClientes.Name = "MenuClientes";
             this.MenuClientes.Size = new System.Drawing.Size(180, 22);
             this.MenuClientes.Text = "Clientes";
+            this.MenuClientes.Click += new System.EventHandler(this.MenuClientes_Click);
             // 
             // MenuUsuários
             // 

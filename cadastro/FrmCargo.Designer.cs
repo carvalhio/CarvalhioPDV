@@ -77,6 +77,7 @@
             this.btnNovo.TabIndex = 19;
             this.btnNovo.Text = "Novo";
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // grid
             // 
@@ -88,6 +89,7 @@
             this.grid.ReadOnly = true;
             this.grid.Size = new System.Drawing.Size(872, 232);
             this.grid.TabIndex = 21;
+            this.grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_CellClick);
             // 
             // txtCargo
             // 

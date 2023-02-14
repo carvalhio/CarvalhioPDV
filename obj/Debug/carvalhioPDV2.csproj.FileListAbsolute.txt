@@ -42,3 +42,27 @@ C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPD
 C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.pdb
 C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.cadastro.FrmCargos.resources
 C:\Users\raf_c\OneDrive\Área de Trabalho\PDV\carvalhioPDV\obj\Debug\carvalhioPDV2.cadastro.FrmCargo.resources
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.csproj.AssemblyReference.cache
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.cadastro.FrmCargo.resources
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.cadastro.FrmFuncionario.resources
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.MenuPrincipal.resources
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.Properties.Resources.resources
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.csproj.GenerateResource.cache
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.csproj.CoreCompileInputs.cache
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.exe
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.pdb
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.cadastro.FrmClientes.resources
+C:\Projetos\CarvalhioPDV\bin\Debug\carvalhioPDV2.exe.config
+C:\Projetos\CarvalhioPDV\bin\Debug\carvalhioPDV2.exe
+C:\Projetos\CarvalhioPDV\bin\Debug\carvalhioPDV2.pdb
+C:\Projetos\CarvalhioPDV\bin\Debug\Google.Protobuf.dll
+C:\Projetos\CarvalhioPDV\bin\Debug\MySql.Data.dll
+C:\Projetos\CarvalhioPDV\bin\Debug\System.Buffers.dll
+C:\Projetos\CarvalhioPDV\bin\Debug\System.Memory.dll
+C:\Projetos\CarvalhioPDV\bin\Debug\System.Numerics.Vectors.dll
+C:\Projetos\CarvalhioPDV\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Projetos\CarvalhioPDV\bin\Debug\ZstdNet.dll
+C:\Projetos\CarvalhioPDV\bin\Debug\Google.Protobuf.pdb
+C:\Projetos\CarvalhioPDV\bin\Debug\Google.Protobuf.xml
+C:\Projetos\CarvalhioPDV\bin\Debug\MySql.Data.xml
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.csproj.CopyComplete

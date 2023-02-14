@@ -364,7 +364,7 @@ namespace carvalhioPDV2.cadastro
         }
 
        
-        // PREECHE OS CAMPOS DO CADASTRO COM OS DADOS DO FUNCIONÁRIO SELECIONADO
+        // PREENCHE OS CAMPOS DO CADASTRO COM OS DADOS DO FUNCIONÁRIO SELECIONADO
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnSalvar.Enabled = false;
@@ -409,9 +409,7 @@ namespace carvalhioPDV2.cadastro
             {
                 return;
             }
-        }
-
-        
+        }       
     }
 }
 

@@ -26,11 +26,19 @@ namespace carvalhioPDV2
         {
             cadastro.FrmFuncionario frm = new cadastro.FrmFuncionario();
             frm.ShowDialog();
+
         }
 
         private void MenuCargos_Click(object sender, EventArgs e)
         {
             cadastro.FrmCargo frm = new cadastro.FrmCargo();
+            frm.ShowDialog();
+            
+        }
+
+        private void MenuClientes_Click(object sender, EventArgs e)
+        {
+            cadastro.FrmClientes frm = new cadastro.FrmClientes();
             frm.ShowDialog();
         }
     }
