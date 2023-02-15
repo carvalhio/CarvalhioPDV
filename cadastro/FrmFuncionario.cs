@@ -318,7 +318,7 @@ namespace carvalhioPDV2.cadastro
         }
 
         // LISTAR CARGOS
-        private void ListPositon()
+        private void ListPosition()
         {
             con.OpenConnection();
             sql = "SELECT * FROM cargos ORDER BY cargo asc";
@@ -337,7 +337,7 @@ namespace carvalhioPDV2.cadastro
         private void FrmFuncionario_Load(object sender, EventArgs e)
         {
             changedImage = "no";
-            ListPositon();
+            ListPosition();
             cleanPicture();
             printDatas();
             btnAtualizar.Enabled = false;

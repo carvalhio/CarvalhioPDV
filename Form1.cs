@@ -41,5 +41,11 @@ namespace carvalhioPDV2
             cadastro.FrmClientes frm = new cadastro.FrmClientes();
             frm.ShowDialog();
         }
+
+        private void cadastrarNovoClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cadastro.FrmNovoCliente frm = new cadastro.FrmNovoCliente();
+            frm.ShowDialog();
+        }
     }
 }

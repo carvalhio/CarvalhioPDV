@@ -54,6 +54,7 @@ namespace carvalhioPDV2
             this.MenuDespesasRel = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSair = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cadastrarNovoClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.img01 = new System.Windows.Forms.PictureBox();
             this.frmPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.img01)).BeginInit();
@@ -94,6 +95,8 @@ namespace carvalhioPDV2
             // 
             // MenuClientes
             // 
+            this.MenuClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cadastrarNovoClienteToolStripMenuItem});
             this.MenuClientes.Name = "MenuClientes";
             this.MenuClientes.Size = new System.Drawing.Size(180, 22);
             this.MenuClientes.Text = "Clientes";
@@ -228,6 +231,13 @@ namespace carvalhioPDV2
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // cadastrarNovoClienteToolStripMenuItem
+            // 
+            this.cadastrarNovoClienteToolStripMenuItem.Name = "cadastrarNovoClienteToolStripMenuItem";
+            this.cadastrarNovoClienteToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.cadastrarNovoClienteToolStripMenuItem.Text = "Cadastrar novo cliente";
+            this.cadastrarNovoClienteToolStripMenuItem.Click += new System.EventHandler(this.cadastrarNovoClienteToolStripMenuItem_Click);
+            // 
             // img01
             // 
             this.img01.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
@@ -286,6 +296,7 @@ namespace carvalhioPDV2
         private System.Windows.Forms.ToolStripMenuItem MenuMovimentosRel;
         private System.Windows.Forms.ToolStripMenuItem MenuEntradasSaídasRel;
         private System.Windows.Forms.ToolStripMenuItem MenuDespesasRel;
+        private System.Windows.Forms.ToolStripMenuItem cadastrarNovoClienteToolStripMenuItem;
     }
 }
 

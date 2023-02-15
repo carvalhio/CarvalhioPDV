@@ -66,3 +66,4 @@ C:\Projetos\CarvalhioPDV\bin\Debug\Google.Protobuf.pdb
 C:\Projetos\CarvalhioPDV\bin\Debug\Google.Protobuf.xml
 C:\Projetos\CarvalhioPDV\bin\Debug\MySql.Data.xml
 C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.csproj.CopyComplete
+C:\Projetos\CarvalhioPDV\obj\Debug\carvalhioPDV2.cadastro.FrmNovoCliente.resources
